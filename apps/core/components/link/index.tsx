@@ -26,7 +26,7 @@ type Props = NextLinkProps & PrefetchOptions;
  * page load performance and resource usage. https://nextjs.org/docs/app/api-reference/components/link#prefetch
  */
 export const Link = forwardRef<ElementRef<'a'>, Props>(
-  ({ href, prefetch = 'hover', prefetchKind = 'auto', children, className, ...rest }, ref) => {
+  ({ href, prefetch = 'viewport', prefetchKind = 'full', children, className, ...rest }, ref) => {
     const router = useRouter();
     const [prefetched, setPrefetched] = useReducer(() => true, false);
     const computedPrefetch = computePrefetchProp({ prefetch, prefetchKind });
