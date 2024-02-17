@@ -10,8 +10,11 @@ const cspHeader = `
 const nextConfig = {
   reactStrictMode: true,
   images: {
+    loader: 'custom',
+    loaderFile: './lib/cdn-image-loader.ts',
     remotePatterns: [
       {
+        protocol: 'https',
         hostname: process.env.BIGCOMMERCE_CDN_HOSTNAME ?? '*.bigcommerce.com',
       },
     ],
